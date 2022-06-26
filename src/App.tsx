@@ -6,6 +6,7 @@ import View from "./components/View/View";
 function App() {
     return (
         <Container>
+            learn
             <View />
         </Container>
     );

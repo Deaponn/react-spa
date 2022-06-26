@@ -1,4 +1,4 @@
-import { Action, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 const initialState = 1;
@@ -8,10 +8,10 @@ export const buttonsSlice = createSlice({
     initialState,
     reducers: {
         increment: (state) => {
-            return state + 1;
+            return state < 3 ? state + 1 : state;
         },
         decrement: (state) => {
-            return state - 1;
+            return state > 1 ? state - 1 : state;
         },
     },
 });
