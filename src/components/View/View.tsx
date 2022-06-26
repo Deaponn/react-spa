@@ -1,13 +1,12 @@
+import { Skeleton } from "@mui/material";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import Buttons from "../Buttons/Buttons";
-import { selectPage } from "../Buttons/buttonsSlice";
 import { fetchNewItems } from "./viewSlice";
 
 export default function View() {
-    const currentPage = useAppSelector(selectPage);
-    const dispatch = useAppDispatch();
     const fetchStatus = useAppSelector((state) => state.items.status);
+    const itemList = useAppSelector((state) => state.items.items);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (fetchStatus === "idle") {
@@ -17,8 +16,9 @@ export default function View() {
 
     return (
         <div>
-            {currentPage}
-            <Buttons />
+            {itemList.length !== 0
+                ? itemList.map((item) => <div key={item.id}>{item.name}</div>)
+                : [0, 1, 2, 3, 4].map((number) => <Skeleton key={number} variant="text" animation="wave" />)}
         </div>
     );
 }

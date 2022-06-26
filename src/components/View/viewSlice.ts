@@ -13,21 +13,32 @@ const initialState: Data = {
     error: null,
 };
 
-export const fetchNewItems = createAsyncThunk("view/fetchNewItems", async (page: number) => {
-    const response = await fetchItems(page);
-    return response.data;
-});
+export const fetchNewItems = createAsyncThunk(
+    "view/fetchNewItems",
+    async (page: number) => {
+        const response = await fetchItems(page);
+        return response.data;
+    },
+    {
+        condition: (page) => {
+            if (page === 0 || page === 4) return false;
+            return true;
+        },
+    }
+);
 
 export const viewSlice = createSlice({
     name: "counter",
     initialState,
-    reducers: {
-    },
+    reducers: {},
     extraReducers(builder) {
+        builder.addCase(fetchNewItems.pending, (state) => {
+            state.items = [];
+        });
         builder.addCase(fetchNewItems.fulfilled, (state, action) => {
             state.items = action.payload;
         });
     },
 });
 
-export default viewSlice.reducer
+export default viewSlice.reducer;
