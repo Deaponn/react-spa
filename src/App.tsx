@@ -5,6 +5,7 @@ import List from "./components/View/View";
 import Buttons from "./components/Buttons/Buttons";
 import { useAppSelector } from "./app/hooks";
 import { selectPage } from "./components/Buttons/buttonsSlice";
+import Filter from "./components/Filter/Filter";
 
 function App() {
     const currentPage = useAppSelector(selectPage);
@@ -12,6 +13,7 @@ function App() {
     return (
         <Container>
             <>
+                <Filter />
                 <List />
                 {currentPage}
                 <Buttons />
