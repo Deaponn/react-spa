@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchItems, Item } from "./viewAPI";
+import { fetchItems, ItemAPI } from "./listAPI";
 
 type Data = {
-    items: Item[];
+    items: ItemAPI[];
     status: "idle" | "loading" | "succeeded" | "failed";
     error: string | null;
 };

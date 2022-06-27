@@ -1,4 +1,4 @@
-export type Item = {
+export type ItemAPI = {
     id: number;
     name: string;
     year: number;
@@ -11,7 +11,7 @@ interface ResInterface {
     per_page: number;
     total: number;
     total_pages: number;
-    data: Item[];
+    data: ItemAPI[];
     support: {
         url: string;
         text: string;
@@ -20,5 +20,6 @@ interface ResInterface {
 
 export async function fetchItems(page: number) {
     const response = await fetch(`https://reqres.in/api/products?per_page=5&page=${page}`)
+    // await new Promise(r => setTimeout(r, 2000));
     return await response.json() as ResInterface
 }

@@ -1,11 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import buttonsSlice from "../components/Buttons/buttonsSlice";
-import viewSlice from "../components/View/viewSlice";
+import viewSlice from "../components/List/listSlice";
 import filterSlice from "../components/Filter/filterSlice";
 
 export const store = configureStore({
     reducer: {
-        page: buttonsSlice,
         items: viewSlice,
         filter: filterSlice,
     },
