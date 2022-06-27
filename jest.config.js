@@ -4,6 +4,7 @@ module.exports = {
     moduleFileExtensions: [...defaults.moduleFileExtensions, "ts", "tsx"],
     testEnvironment: "jsdom",
     transform: {
-      "\\.[jt]sx?$": "babel-jest",
-    }
+        "\\.[jt]sx?$": "babel-jest",
+    },
+    setupFilesAfterEnv: ["./src/setupTests.ts"],
 };

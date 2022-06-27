@@ -26,7 +26,7 @@ export default function Item({ data, noData }: ItemProps) {
 
     const { id, color, year, name } = data;
     return (
-        <StyledTableRow background={color} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+        <StyledTableRow data-testid="row" background={color} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
             <TableCell component="th" scope="row">
                 {id}
             </TableCell>

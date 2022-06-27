@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "@mui/material";
 import List from "./components/List/List";
 import Buttons from "./components/Buttons/Buttons";
@@ -17,6 +17,10 @@ const StyledDiv = styled.div`
 `;
 
 function App() {
+    useEffect(() => {
+        document.title = "React SPA App"
+     }, []);
+
     return (
         <Container>
             <StyledDiv>

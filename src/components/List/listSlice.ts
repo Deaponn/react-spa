@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchItems, ItemAPI } from "./listAPI";
 
-type Data = {
+export type Data = {
     items: ItemAPI[];
     status: "idle" | "loading" | "succeeded" | "failed";
     error: string | null;
@@ -14,7 +14,7 @@ const initialState: Data = {
 };
 
 export const fetchNewItems = createAsyncThunk(
-    "view/fetchNewItems",
+    "list/fetchNewItems",
     async (page: number) => {
         const response = await fetchItems(page);
         return response.data;
@@ -27,7 +27,7 @@ export const fetchNewItems = createAsyncThunk(
     }
 );
 
-export const viewSlice = createSlice({
+export const listSlice = createSlice({
     name: "counter",
     initialState,
     reducers: {},
@@ -41,4 +41,4 @@ export const viewSlice = createSlice({
     },
 });
 
-export default viewSlice.reducer;
+export default listSlice.reducer;

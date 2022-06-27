@@ -1,6 +1,6 @@
 import filterReducer, { handleInput } from "./filterSlice";
 
-describe("counter reducer", () => {
+describe("filter reducer", () => {
     const initialState = "";
     it("should handle initial state", () => {
         expect(filterReducer(undefined, { type: "unknown" })).toEqual("");
