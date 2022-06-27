@@ -31,7 +31,7 @@ export default function View() {
                 </TableHead>
                 <TableBody>
                     {
-                    filteredList.length === 0
+                    filteredList.length === 0 && filterValue !== "" && fetchStatus !== "loading"
                         ? <Item noData />
                         : filteredList.map((item) => <Item key={item.id} data={item} />)
                         }

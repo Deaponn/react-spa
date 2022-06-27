@@ -34,9 +34,11 @@ export const listSlice = createSlice({
     extraReducers(builder) {
         builder.addCase(fetchNewItems.pending, (state) => {
             state.items = [];
+            state.status = "loading"
         });
         builder.addCase(fetchNewItems.fulfilled, (state, action) => {
             state.items = action.payload;
+            state.status = "succeeded"
         });
     },
 });
