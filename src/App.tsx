@@ -1,5 +1,4 @@
 import React from "react";
-// import { Counter } from "./features/counter/Counter";
 import { Container } from "@mui/material";
 import List from "./components/View/View";
 import Buttons from "./components/Buttons/Buttons";
